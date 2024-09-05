@@ -1,12 +1,6 @@
-/* Importing Fonts */
 @import "@fontsource/playfair-display";
 @import "@fontsource/poppins";
-@import "@fontsource/plus-jakarta-sans";
-@import "@fontsource/inter";
-@import "@fontsource/roboto";
 
-/* Tailwind CSS Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-

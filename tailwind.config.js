@@ -23,9 +23,6 @@ export default {
       fontFamily: {
         'playfair': ['Playfair Display', 'serif'],
         'poppins': ['Poppins', 'sans-serif'],
-        'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
-        'inter': ['Inter', 'sans-serif'],
-        'roboto': ['Roboto', 'sans-serif'],
       },
     },
   },

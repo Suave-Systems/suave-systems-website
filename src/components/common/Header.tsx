@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Moon, Sun, Search, Menu } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Moon, Sun, Menu } from "lucide-react";
+// import { Input } from "@/components/ui/input";
 import {
   Sheet,
   SheetContent,
@@ -19,11 +19,11 @@ interface NavItem {
 
 const Header: React.FC = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  // const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const location = useLocation();
 
-  const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
+  // const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <img
-              src="https://res.cloudinary.com/doetven6z/image/upload/v1725093663/Logoim_dyapci.svg"
+              src="https://res.cloudinary.com/doetven6z/image/upload/v1725413181/newsuaveicon_a3ogmx.svg"
               alt="Logo"
               className="h-8 w-auto"
             />
@@ -76,14 +76,14 @@ const Header: React.FC = () => {
                 ))}
               </ul>
             </nav>
-            <Button
+            {/* <Button
               variant="ghost"
               size="icon"
               onClick={toggleSearch}
               className="text-primary dark:text-white"
             >
               <Search className="h-5 w-5 hover:text-gray-300" />
-            </Button>
+            </Button> */}
             <Button
               variant="ghost"
               size="icon"
@@ -99,14 +99,14 @@ const Header: React.FC = () => {
           </div>
 
           <div className="md:hidden flex items-center space-x-2">
-            <Button
+            {/* <Button
               variant="ghost"
               size="icon"
               onClick={toggleSearch}
               className="text-primary dark:text-white"
             >
               <Search className="h-5 w-5" />
-            </Button>
+            </Button> */}
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <Button
                 variant="ghost"
@@ -162,7 +162,7 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {isSearchOpen && (
+      {/* {isSearchOpen && (
         <div className="py-2 px-4 bg-gray-100 dark:bg-gray-400">
           <Input
             type="search"
@@ -170,7 +170,7 @@ const Header: React.FC = () => {
             className="w-full text-primary dark:text-white"
           />
         </div>
-      )}
+      )} */}
     </header>
   );
 };
