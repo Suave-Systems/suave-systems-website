@@ -1,5 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 interface ServiceCard {
   icon: React.ReactNode;
@@ -115,11 +116,40 @@ const serviceCards: ServiceCard[] = [
 ];
 
 const WhyUsSection: React.FC = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
+
   return (
-    <section className="bg-background dark:bg-gray-900 py-24 px-4 sm:px-6 lg:px-8">
+    <motion.section
+      ref={ref}
+      className="bg-background dark:bg-gray-900 py-24 px-4 sm:px-6 lg:px-8"
+      variants={containerVariants}
+      initial="hidden"
+      animate={controls}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-start lg:items-start">
-          <div className="lg:w-2/3 mb-12 lg:mb-0 lg:pr-12">
+          <motion.div
+            className="lg:w-2/3 mb-12 lg:mb-0 lg:pr-12"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+          >
             <h2 className="font-playfair font-bold text-4xl sm:text-5xl text-primary dark:text-gray-100 mb-6">
               Our Services
             </h2>
@@ -128,7 +158,7 @@ const WhyUsSection: React.FC = () => {
               process, which is sometimes complicated. Our expert team provides
               tailored solutions to meet your unique business needs.
             </p>
-          </div>
+          </motion.div>
           <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
             {serviceCards.map((card, index) => (
               <ServiceCard key={index} {...card} />
@@ -136,7 +166,7 @@ const WhyUsSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
@@ -144,6 +174,10 @@ const ServiceCard: React.FC<ServiceCard> = ({ icon, title, description }) => {
   return (
     <motion.div
       className="bg-surface dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+      }}
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
     >
@@ -153,7 +187,7 @@ const ServiceCard: React.FC<ServiceCard> = ({ icon, title, description }) => {
       <h3 className="font-playfair font-bold text-xl text-accent dark:text-blue-300 mb-2">
         {title}
       </h3>
-      <p className="font-jakarta text-sm text-text-light dark:text-gray-300">
+      <p className="font-poppins text-sm text-text-light dark:text-gray-300">
         {description}
       </p>
     </motion.div>

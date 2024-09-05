@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+// import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const ContactDetails: React.FC = () => {
   return (
@@ -38,14 +38,14 @@ const ContactDetails: React.FC = () => {
             </h3>
             <div className="space-y-2">
               <p className="font-poppins font-normal text-base text-dark dark:text-gray-300 pr-3">
-                +234 09012346514{" "}
-                <span className="ml-5">hello@largerthani.com</span>
+                +234 0908 835 1220{" "}
+                <span className="ml-5">hello@suavesystems.com</span>
               </p>
             </div>
 
             <hr className="border-[#E5E5E5] dark:border-gray-600 w-full max-w-[325px]" />
             <div className="space-y-4">
-              <div>
+              {/* <div>
                 <h4 className="font-poppins font-bold text-xl text-dark dark:text-white">
                   Headoffice
                 </h4>
@@ -54,8 +54,8 @@ const ContactDetails: React.FC = () => {
                   <br />
                   Nigeria
                 </p>
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <h4 className="font-poppins font-bold text-xl text-dark dark:text-white">
                   Branch Office
                 </h4>
@@ -66,13 +66,13 @@ const ContactDetails: React.FC = () => {
                   <br />
                   Nigeria
                 </p>
-              </div>
+              </div> */}
             </div>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <SocialIcon Icon={FaFacebook} />
               <SocialIcon Icon={FaTwitter} />
               <SocialIcon Icon={FaInstagram} />
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
@@ -80,15 +80,15 @@ const ContactDetails: React.FC = () => {
   );
 };
 
-const SocialIcon: React.FC<{ Icon: React.ElementType }> = ({ Icon }) => (
-  <motion.a
-    href="#"
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.95 }}
-    className="text-dark dark:text-white hover:text-secondary dark:hover:text-[#99CEED] transition-colors duration-200"
-  >
-    <Icon className="w-5 h-5" />
-  </motion.a>
-);
+// const SocialIcon: React.FC<{ Icon: React.ElementType }> = ({ Icon }) => (
+//   <motion.a
+//     href="#"
+//     whileHover={{ scale: 1.1 }}
+//     whileTap={{ scale: 0.95 }}
+//     className="text-dark dark:text-white hover:text-secondary dark:hover:text-[#99CEED] transition-colors duration-200"
+//   >
+//     <Icon className="w-5 h-5" />
+//   </motion.a>
+// );
 
 export default ContactDetails;
